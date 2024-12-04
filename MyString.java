@@ -19,14 +19,21 @@ public class MyString {
     /** Returns the lowercase version of the given string. */
     public static String lowerCase(String str) {
         String newStr = "";
-        char charToAdd; 
-
-        for (int i = 0; i < str.length(); i++)
-        {
-            if (str.charAt(i) >= 'A' && str.charAt(i) <= 'Z') {
-                charToAdd = (char) (str.charAt(i) + ('a' - 'z')); 
-                newStr += charToAdd;
+        char charToAdd;
+    
+        for (int i = 0; i < str.length(); i++) {
+            char currentChar = str.charAt(i);
+    
+            // Check if the character is an uppercase letter
+            if (currentChar >= 'A' && currentChar <= 'Z') {
+                charToAdd = (char) (currentChar + 32); // Correct conversion to lowercase
+            } else {
+                // Keep non-uppercase characters as is
+                charToAdd = currentChar;
             }
+    
+            // Append the character to the result
+            newStr += charToAdd;
         }
         return newStr;
     }
