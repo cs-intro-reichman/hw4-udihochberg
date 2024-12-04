@@ -18,6 +18,23 @@ public class KeywordsDetector {
         detectAndPrint(sentences, keywords);
     }
 
+    public static String lowerCase(String str) {
+        String newStr = "";
+        char charToAdd;
+    
+        for (int i = 0; i < str.length(); i++) {
+            char currentChar = str.charAt(i);
+    
+            if (currentChar >= 'A' && currentChar <= 'Z') {
+                charToAdd = (char) (currentChar + 32); 
+            } 
+            else {charToAdd = currentChar;}
+    
+            newStr += charToAdd;
+        }
+        return newStr;
+    }
+
     public static boolean SimpleContain(String str1, String str2){
         int counter = 0;
         while (counter < str2.length())
@@ -48,10 +65,8 @@ public class KeywordsDetector {
         {
             for (int j = 0; j < keywords.length; j++)
             {
-                if (contains(sentences[i].toLowerCase(), keywords[j])) {System.out.println(sentences[i]);  
-                j++;
+                if (contains(lowerCase(sentences[i]), lowerCase(keywords[j]))) {System.out.println(sentences[i]);  
             }
-            i++;
         }
     }
 }

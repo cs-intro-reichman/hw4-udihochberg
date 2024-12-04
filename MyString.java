@@ -24,15 +24,11 @@ public class MyString {
         for (int i = 0; i < str.length(); i++) {
             char currentChar = str.charAt(i);
     
-            // Check if the character is an uppercase letter
             if (currentChar >= 'A' && currentChar <= 'Z') {
-                charToAdd = (char) (currentChar + 32); // Correct conversion to lowercase
-            } else {
-                // Keep non-uppercase characters as is
-                charToAdd = currentChar;
-            }
+                charToAdd = (char) (currentChar + 32); 
+            } 
+            else {charToAdd = currentChar;}
     
-            // Append the character to the result
             newStr += charToAdd;
         }
         return newStr;
